@@ -1,4 +1,4 @@
-# DatepickerDialog
+# DatepickerDialog [![](https://jitpack.io/v/huangdali/DatepickerDialog.svg)](https://jitpack.io/#huangdali/DatepickerDialog)
 
 日期选择器，日历选择器，可标记某一天，DatepickerDialog,Tagged calendar
 
@@ -8,6 +8,26 @@
 - 选择回调（未标记回调）
 - 自动记录上一次的选择
 - 可限制只显示两个月（默认不限制）
+
+## How to
+
+To get a Git project into your build:
+
+### Step 1. Add the JitPack repository to your build file
+
+Add it in your root build.gradle at the end of repositories:
+
+	allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+### Step 2. Add the dependency
+
+	dependencies {
+	        compile 'com.github.huangdali:DatepickerDialog:v1.0.4'
+	}
 
 ### 效果图：
 
