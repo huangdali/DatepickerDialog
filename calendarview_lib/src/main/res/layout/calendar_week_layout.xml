@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/daysContainer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:baselineAligned="false"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:tag="dayOfTheWeekLayout1">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#6e9fff"
+            android:gravity="center"
+            android:paddingBottom="14dp"
+            android:tag="dayOfTheWeekText1"
+            android:text="Mon"
+            android:textColor="@android:color/white" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:tag="dayOfTheWeekLayout2">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#6e9fff"
+            android:gravity="center"
+            android:paddingBottom="14dp"
+            android:tag="dayOfTheWeekText2"
+            android:text="Tue"
+            android:textColor="@android:color/white" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:tag="dayOfTheWeekLayout3">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#6e9fff"
+            android:gravity="center"
+            android:paddingBottom="14dp"
+            android:tag="dayOfTheWeekText3"
+            android:text="Wed"
+            android:textColor="@android:color/white" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:tag="dayOfTheWeekLayout4">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#6e9fff"
+            android:gravity="center"
+            android:paddingBottom="14dp"
+            android:tag="dayOfTheWeekText4"
+            android:text="Thu"
+            android:textColor="@android:color/white" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:tag="dayOfTheWeekLayout5">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#6e9fff"
+            android:gravity="center"
+            android:paddingBottom="14dp"
+            android:tag="dayOfTheWeekText5"
+            android:text="Fri"
+            android:textColor="@android:color/white" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:tag="dayOfTheWeekLayout6">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#6e9fff"
+            android:gravity="center"
+            android:paddingBottom="14dp"
+            android:tag="dayOfTheWeekText6"
+            android:text="Sat"
+            android:textColor="@android:color/white" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:tag="dayOfTheWeekLayout7">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#6e9fff"
+            android:gravity="center"
+            android:paddingBottom="14dp"
+            android:tag="dayOfTheWeekText7"
+            android:text="Sun"
+            android:textColor="@android:color/white" />
+
+    </LinearLayout>
+
+</LinearLayout>

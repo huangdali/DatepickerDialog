@@ -1,0 +1,45 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="AppBaseTheme" parent="android:Theme.Light" />
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+
+    <style name="RobotoCalendarMonthText">
+        <item name="android:textSize">@dimen/roboto_calendar_month_font</item>
+        <item name="android:textColor">@color/roboto_calendar_month_font</item>
+    </style>
+
+    <style name="RobotoCalendarMonthArrow">
+        <item name="android:tint">@color/roboto_calendar_month_arrow</item>
+    </style>
+
+    <style name="RobotoCalendarDayOfTheWeekText">
+        <item name="android:textSize">@dimen/roboto_calendar_day_of_week_font</item>
+        <item name="android:textColor">@color/roboto_calendar_day_of_the_month_font</item>
+    </style>
+
+    <style name="RobotoCalendarDayOfTheMonthText">
+        <item name="android:textSize">@dimen/roboto_calendar_day_of_the_month_font</item>
+        <item name="android:textColor">@color/roboto_calendar_day_of_the_month_font</item>
+    </style>
+    <style name="DialogTheme" parent="@android:style/Theme.Dialog">
+        <!-- 边框 -->
+        <item name="android:windowFrame">@null</item>
+        <!-- 是否浮现在activity之上 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 半透明 -->
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- 无标题 -->
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">@android:color/transparent</item>
+        <!-- 背景透明 -->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!-- 模糊 -->
+        <item name="android:backgroundDimEnabled">true</item>
+        <!-- 遮罩层 -->
+        <item name="android:backgroundDimAmount">0.5</item>
+    </style>
+</resources>

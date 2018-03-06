@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_vertical"
+    android:layout_weight="1"
+    android:tag="dayOfTheMonthLayout">
+
+    <RelativeLayout
+        android:id="@+id/dayOfTheMonthBackground"
+        android:layout_width="@dimen/roboto_calendar_day_of_the_month_background_size"
+        android:layout_height="@dimen/roboto_calendar_day_of_the_month_background_size"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_margin="5dp"
+        android:background="@drawable/circle"
+        android:tag="dayOfTheMonthBackground">
+
+        <TextView
+            android:id="@+id/textView"
+            style="@style/RobotoCalendarDayOfTheMonthText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:tag="dayOfTheMonthText"
+            android:text="1" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dayOfTheMonthBackground"
+        android:layout_centerHorizontal="true"
+        android:divider="@drawable/empty_divider"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="5dp"
+        android:showDividers="middle">
+
+        <ImageView
+            android:layout_width="@dimen/roboto_calendar_circle_size"
+            android:layout_height="@dimen/roboto_calendar_circle_size"
+            android:src="@drawable/circle"
+            android:tag="dayOfTheMonthCircleImage1"
+            android:tint="@color/roboto_calendar_circle_1"
+            android:visibility="visible" />
+
+        <ImageView
+            android:layout_width="@dimen/roboto_calendar_circle_size"
+            android:layout_height="@dimen/roboto_calendar_circle_size"
+            android:src="@drawable/circle"
+            android:tag="dayOfTheMonthCircleImage2"
+            android:tint="@color/roboto_calendar_circle_2"
+            android:visibility="visible" />
+
+    </LinearLayout>
+</RelativeLayout>
