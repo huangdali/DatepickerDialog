@@ -5,16 +5,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
 
+import com.hdl.calendardialog.CalendarView;
 import com.hdl.calendardialog.CalendarViewDialog;
 import com.hdl.calendardialog.DateUtils;
-import com.hdl.calendardialog.CalendarView;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    private List<Long> markDays;
+    private List<Long>  markDays = new ArrayList<>();
     //    private RobotoCalendarView robotoCalendarView;
 
     @Override
@@ -32,10 +32,7 @@ public class MainActivity extends AppCompatActivity {
 //        robotoCalendarView.showDateTitle(true);
 //
 //        robotoCalendarView.updateView();
-        markDays = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
-
-//            robotoCalendarView.markCircleImage1(calendar);
             markDays.add(System.currentTimeMillis() - i * 24 * 60 * 60 * 1000);
         }
         markDays.add(System.currentTimeMillis() - 12 * 24 * 60 * 60 * 1000);
