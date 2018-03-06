@@ -38,7 +38,7 @@ Add it in your root build.gradle at the end of repositories:
 ![](https://github.com/huangdali/DatepickerDialog/blob/master/images/image1.png)
 
 ### 切换月份
-![](https://github.com/huangdali/DatepickerDialog/blob/master/images/image3.png)
+![](https://github.com/huangdali/DatepickerDialog/blob/master/images/image2.png)
 
 ### DMEO
 ```java
