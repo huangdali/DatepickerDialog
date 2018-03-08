@@ -22,6 +22,7 @@ public class CalendarViewDialog {
     private Dialog dialog;
     private List<Long> marksDays = new ArrayList<>();
     private CalendarView calendarView;
+    private Context context;
 
     private CalendarViewDialog() {
     }
@@ -44,7 +45,8 @@ public class CalendarViewDialog {
      * @return
      */
     public CalendarViewDialog init(Context context) {
-        if (dialog == null || calendarView == null) {
+        if (dialog == null || calendarView == null || this.context != context) {
+            this.context = context;
             dialog = new Dialog(context, R.style.DialogTheme);
             View view = View.inflate(context, R.layout.dialog_calendar, null);
             view.setOnTouchListener(new View.OnTouchListener() {
