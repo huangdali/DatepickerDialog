@@ -335,7 +335,7 @@ public class CalendarView extends LinearLayout {
 
         // Mark current day as selected
         ViewGroup dayOfTheMonthBackground = getDayOfMonthBackground(calendar);
-        dayOfTheMonthBackground.setBackgroundResource(R.drawable.circle);
+        dayOfTheMonthBackground.setBackgroundResource(R.drawable.circle_ring);
 
         TextView dayOfTheMonth = getDayOfMonthText(calendar);
         dayOfTheMonth.setTextColor(ContextCompat.getColor(context, R.color.roboto_calendar_selected_day_font));

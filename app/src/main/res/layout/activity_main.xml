@@ -13,4 +13,12 @@
         android:layout_height="wrap_content"
         android:onClick="onDateChoise"
         android:text="日期选择" />
+    <!--<fragment-->
+        <!--android:name="hdl.com.calendardemo.BlankFragment"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"/>-->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:id="@+id/fl_parent"
+        android:layout_height="match_parent"/>
 </LinearLayout>
