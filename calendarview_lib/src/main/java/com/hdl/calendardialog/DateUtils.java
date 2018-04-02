@@ -105,7 +105,7 @@ public class DateUtils {
      * @param currentTime
      * @return
      */
-    public static String getDateByCurrentTiem(long currentTime) {
+    public static String getDateByCurrentTime(long currentTime) {
         return new SimpleDateFormat("yyyy-MM-dd").format(currentTime);
     }
 

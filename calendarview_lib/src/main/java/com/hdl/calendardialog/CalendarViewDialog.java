@@ -82,6 +82,10 @@ public class CalendarViewDialog {
         if (dialog != null) {
             dialog.show();
         }
+        if (currentTimeMillis!=0) {
+            Log.e("hdltag", "show(CalendarViewDialog.java:86):----------------"+DateUtils.getDateByCurrentTime(calendarView.getCurrentSelectedDay().getTimeInMillis()));
+            calendarView.setSelectedDay(calendarView.getCurrentSelectedDay().getTimeInMillis());
+        }
     }
 
     public CalendarViewDialog addMarks(List<Long> marks) {
@@ -113,4 +117,13 @@ public class CalendarViewDialog {
         return this;
     }
 
+    private long currentTimeMillis;
+
+    public CalendarViewDialog setSelectedDay(long currentTimeMillis) {
+        this.currentTimeMillis = currentTimeMillis;
+        if (calendarView != null) {
+            calendarView.setSelectedDay(currentTimeMillis);
+        }
+        return this;
+    }
 }

@@ -5,6 +5,7 @@ import android.graphics.Typeface;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 import java.text.DateFormatSymbols;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -53,7 +55,10 @@ public class CalendarView extends LinearLayout {
     private static final String DAY_OF_THE_MONTH_BACKGROUND = "dayOfTheMonthBackground";
     private static final String DAY_OF_THE_MONTH_CIRCLE_IMAGE_1 = "dayOfTheMonthCircleImage1";
     private static final String DAY_OF_THE_MONTH_CIRCLE_IMAGE_2 = "dayOfTheMonthCircleImage2";
-
+    /**
+     * 当前选中的日期
+     */
+    private Calendar currentSelectedDay;
     /**
      * 是否限制只显示两个月
      */
@@ -97,8 +102,8 @@ public class CalendarView extends LinearLayout {
         isLimitMonth = limitMonth;
         if (isLimitMonth) {
             rightButton.setVisibility(INVISIBLE);
-            Calendar calendar=Calendar.getInstance();
-            if (currentCalendar.get(Calendar.MONTH)!=calendar.get(Calendar.MONTH)) {
+            Calendar calendar = Calendar.getInstance();
+            if (currentCalendar.get(Calendar.MONTH) != calendar.get(Calendar.MONTH)) {
                 rightButton.setVisibility(VISIBLE);
             }
         } else {
@@ -325,8 +330,36 @@ public class CalendarView extends LinearLayout {
         }
     }
 
-    private void markDayAsSelectedDay(Calendar calendar) {
+    public Calendar getCurrentSelectedDay() {
+        return currentSelectedDay;
+    }
 
+    public void setSelectedDay(long currentTimeMillis) {
+        //获取当前的
+        int curMonth = 0;
+        if (currentCalendar != null) {
+            curMonth = currentCalendar.get(Calendar.MONTH);
+        }
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(new Date(currentTimeMillis));
+        this.currentSelectedDay = calendar;
+        Log.e("hdltag", "setSelectedDay(CalendarView.java:342):" + DateUtils.getDateByCurrentTime(currentCalendar.getTimeInMillis()));
+        Log.e("hdltag", "setSelectedDay(CalendarView.java:343):" + DateUtils.getDateByCurrentTime(currentTimeMillis));
+        if (curMonth == currentSelectedDay.get(Calendar.MONTH)) {//当前月份才标记
+            Log.e("hdltag", "setSelectedDay(CalendarView.java:343):当月，开始标记");
+            markDayAsSelectedDay(currentSelectedDay);
+        } else {
+            if (lastClearSelectedDay != null) {
+                clearSelectedDay(lastClearSelectedDay);
+            }
+        }
+    }
+
+    private Calendar lastClearSelectedDay;
+
+    private void markDayAsSelectedDay(Calendar calendar) {
+        lastClearSelectedDay = calendar;
+        Log.e("hdltag", "markDayAsSelectedDay(CalendarView.java:351):标记这一天为选中了" + DateUtils.getDateByCurrentTime(calendar.getTimeInMillis()));
         // Clear previous current day mark
         clearSelectedDay(lastSelectedDayCalendar);
 
@@ -353,20 +386,21 @@ public class CalendarView extends LinearLayout {
 
     private void clearSelectedDay(Calendar calendar) {
         if (calendar != null) {
-
             ViewGroup dayOfTheMonthBackground = getDayOfMonthBackground(calendar);
-
             // If it's today, keep the current day style
             Calendar nowCalendar = Calendar.getInstance();
-            if (nowCalendar.get(Calendar.YEAR) == lastSelectedDayCalendar.get(Calendar.YEAR) && nowCalendar.get(Calendar.DAY_OF_YEAR) == lastSelectedDayCalendar.get(Calendar.DAY_OF_YEAR)) {
-                dayOfTheMonthBackground.setBackgroundResource(R.drawable.ring);
+            if (nowCalendar.get(Calendar.YEAR) == calendar.get(Calendar.YEAR) && nowCalendar.get(Calendar.DAY_OF_YEAR) == calendar.get(Calendar.DAY_OF_YEAR)) {
+                Log.e("hdltag", "clearSelectedDay(CalendarView.java:393):------------当月的----------");
+                if (currentCalendar.get(Calendar.MONTH)==calendar.get(Calendar.MONTH)) {
+                    dayOfTheMonthBackground.setBackgroundResource(R.drawable.ring);
+                }else {
+                    dayOfTheMonthBackground.setBackgroundResource(android.R.color.transparent);
+                }
             } else {
                 dayOfTheMonthBackground.setBackgroundResource(android.R.color.transparent);
             }
-
             TextView dayOfTheMonth = getDayOfMonthText(calendar);
             dayOfTheMonth.setTextColor(ContextCompat.getColor(context, R.color.roboto_calendar_day_of_the_month_font));
-
             ImageView circleImage1 = getCircleImage1(calendar);
             ImageView circleImage2 = getCircleImage2(calendar);
             if (circleImage1.getVisibility() == VISIBLE) {
@@ -460,6 +494,9 @@ public class CalendarView extends LinearLayout {
             calendar.setTimeInMillis(markDay);
             markCircleImage1(calendar);
         }
+        if (currentSelectedDay != null) {
+            setSelectedDay(currentSelectedDay.getTimeInMillis());
+        }
     }
 
     // ************************************************************************************************************************************************************************
@@ -523,6 +560,7 @@ public class CalendarView extends LinearLayout {
             calendar.set(Calendar.SECOND, 0);
             calendar.set(Calendar.MILLISECOND, 0);
             if (currentTimeMillis >= calendar.getTimeInMillis()) {
+                currentSelectedDay = calendar;
                 //只能选择今天之前的日期
                 markDayAsSelectedDay(calendar);
                 // Fire event

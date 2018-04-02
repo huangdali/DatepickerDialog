@@ -8,6 +8,7 @@
 - 选择回调（未标记回调）
 - 自动记录上一次的选择
 - 可限制只显示两个月（默认不限制）
+- 设置某人选中选中某一天
 
 ## How to
 
@@ -26,7 +27,7 @@ Add it in your root build.gradle at the end of repositories:
 ### Step 2. Add the dependency
 
 	dependencies {
-	        compile 'com.github.huangdali:DatepickerDialog:v1.0.6'
+	        compile 'com.github.huangdali:DatepickerDialog:v1.0.7'
 	}
 
 ### 效果图：
@@ -73,3 +74,9 @@ for (int i = 0; i < 5; i++) {
             markDays.add(System.currentTimeMillis() - i * 24 * 60 * 60 * 1000);
 }
 ```
+
+### 更新日志
+
+v1.0.7 ([2018.04.02]())
+
+- 【新增】设置默认选中某一天

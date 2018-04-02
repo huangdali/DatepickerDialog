@@ -13,6 +13,16 @@
         android:layout_height="wrap_content"
         android:onClick="onDateChoise"
         android:text="日期选择" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onSelectedDay"
+        android:text="指定到加某一天" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onSelectedDaySub"
+        android:text="指定到减某一天" />
     <!--<fragment-->
         <!--android:name="hdl.com.calendardemo.BlankFragment"-->
         <!--android:layout_width="match_parent"-->

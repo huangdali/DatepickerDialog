@@ -16,7 +16,7 @@ import java.util.Calendar;
 import java.util.List;
 
 public class MainActivity extends FragmentActivity {
-    private List<Long>  markDays = new ArrayList<>();
+    private List<Long> markDays = new ArrayList<>();
     //    private RobotoCalendarView robotoCalendarView;
 
     @Override
@@ -26,8 +26,8 @@ public class MainActivity extends FragmentActivity {
         //默认显示本地回放
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
-        transaction.replace(R.id.fl_parent,new BlankFragment()).commit();
-
+        transaction.replace(R.id.fl_parent, new BlankFragment()).commit();
+        currentTime=System.currentTimeMillis();
 //        // Gets the calendar from the view
 //        robotoCalendarView = (RobotoCalendarView) findViewById(R.id.robotoCalendarPicker);
 //
@@ -65,5 +65,19 @@ public class MainActivity extends FragmentActivity {
                     }
                 });
 
+    }
+    private long currentTime;
+    public void onSelectedDay(View view) {
+        currentTime+=24 * 60 * 60 * 1000;
+        CalendarViewDialog.getInstance()
+                .init(this)
+                .setSelectedDay(currentTime);
+    }
+
+    public void onSelectedDaySub(View view) {
+        currentTime-=24 * 60 * 60 * 1000;
+        CalendarViewDialog.getInstance()
+                .init(this)
+                .setSelectedDay(currentTime);
     }
 }
