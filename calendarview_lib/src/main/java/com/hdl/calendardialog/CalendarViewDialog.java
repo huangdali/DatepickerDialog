@@ -52,7 +52,7 @@ public class CalendarViewDialog {
             view.setOnTouchListener(new View.OnTouchListener() {
                 @Override
                 public boolean onTouch(View v, MotionEvent event) {
-                    Log.e("hdltag", "onTouch(CalendarViewDialog.java:53):--------------------");
+//                    Log.e("hdltag", "onTouch(CalendarViewDialog.java:53):--------------------");
                     return true;
                 }
             });
@@ -83,7 +83,7 @@ public class CalendarViewDialog {
             dialog.show();
         }
         if (currentTimeMillis!=0) {
-            Log.e("hdltag", "show(CalendarViewDialog.java:86):----------------"+DateUtils.getDateByCurrentTime(calendarView.getCurrentSelectedDay().getTimeInMillis()));
+//            Log.e("hdltag", "show(CalendarViewDialog.java:86):----------------"+DateUtils.getDateByCurrentTime(calendarView.getCurrentSelectedDay().getTimeInMillis()));
             calendarView.setSelectedDay(calendarView.getCurrentSelectedDay().getTimeInMillis());
         }
     }

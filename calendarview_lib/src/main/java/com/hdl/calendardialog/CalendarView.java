@@ -5,7 +5,6 @@ import android.graphics.Typeface;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -343,10 +342,10 @@ public class CalendarView extends LinearLayout {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(new Date(currentTimeMillis));
         this.currentSelectedDay = calendar;
-        Log.e("hdltag", "setSelectedDay(CalendarView.java:342):" + DateUtils.getDateByCurrentTime(currentCalendar.getTimeInMillis()));
-        Log.e("hdltag", "setSelectedDay(CalendarView.java:343):" + DateUtils.getDateByCurrentTime(currentTimeMillis));
+//        Log.e("hdltag", "setSelectedDay(CalendarView.java:342):" + DateUtils.getDateByCurrentTime(currentCalendar.getTimeInMillis()));
+//        Log.e("hdltag", "setSelectedDay(CalendarView.java:343):" + DateUtils.getDateByCurrentTime(currentTimeMillis));
         if (curMonth == currentSelectedDay.get(Calendar.MONTH)) {//当前月份才标记
-            Log.e("hdltag", "setSelectedDay(CalendarView.java:343):当月，开始标记");
+//            Log.e("hdltag", "setSelectedDay(CalendarView.java:343):当月，开始标记");
             markDayAsSelectedDay(currentSelectedDay);
         } else {
             if (lastClearSelectedDay != null) {
@@ -359,7 +358,7 @@ public class CalendarView extends LinearLayout {
 
     private void markDayAsSelectedDay(Calendar calendar) {
         lastClearSelectedDay = calendar;
-        Log.e("hdltag", "markDayAsSelectedDay(CalendarView.java:351):标记这一天为选中了" + DateUtils.getDateByCurrentTime(calendar.getTimeInMillis()));
+//        Log.e("hdltag", "markDayAsSelectedDay(CalendarView.java:351):标记这一天为选中了" + DateUtils.getDateByCurrentTime(calendar.getTimeInMillis()));
         // Clear previous current day mark
         clearSelectedDay(lastSelectedDayCalendar);
 
@@ -390,7 +389,7 @@ public class CalendarView extends LinearLayout {
             // If it's today, keep the current day style
             Calendar nowCalendar = Calendar.getInstance();
             if (nowCalendar.get(Calendar.YEAR) == calendar.get(Calendar.YEAR) && nowCalendar.get(Calendar.DAY_OF_YEAR) == calendar.get(Calendar.DAY_OF_YEAR)) {
-                Log.e("hdltag", "clearSelectedDay(CalendarView.java:393):------------当月的----------");
+//                Log.e("hdltag", "clearSelectedDay(CalendarView.java:393):------------当月的----------");
                 if (currentCalendar.get(Calendar.MONTH)==calendar.get(Calendar.MONTH)) {
                     dayOfTheMonthBackground.setBackgroundResource(R.drawable.ring);
                 }else {
